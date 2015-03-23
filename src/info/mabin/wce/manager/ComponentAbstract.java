@@ -327,7 +327,7 @@ public abstract class ComponentAbstract {
 				} else if (lastElement.equals("UseManagerVersion")){
 					manifest.useManagerVersion = Long.parseLong(new String(ch, start, length));
 
-					loggerManager.info("\tUseManagerVersion: " + manifest.getUseMansgerVersion());
+					loggerManager.info("\tUseManagerVersion: " + manifest.getUseManagerVersion());
 				} else if (lastElement.equals("IcmClass")){
 					if(stack.get(stackSize - 2) == "IcmClasses"){
 						String tmpIcmClassName = new String(ch, start, length); 
@@ -406,7 +406,7 @@ public abstract class ComponentAbstract {
 		/**
 		 * @since 1
 		 */
-		public long getUseMansgerVersion(){
+		public long getUseManagerVersion(){
 			return useManagerVersion;
 		}
 
@@ -519,14 +519,6 @@ public abstract class ComponentAbstract {
 		 */
 		public List<EventListenerIcmImpl> getListEventListenerIcm(){
 			return listEventListenerIcm;
-		}
-
-		/**
-		 * @throws IcmNotRegisteredException 
-		 * @since 1
-		 */
-		public IcmImpl getIcm(String classCanonicalName) throws IcmNotRegisteredException{
-			return ManagerCore.getIcm(classCanonicalName);
 		}
 	}
 
